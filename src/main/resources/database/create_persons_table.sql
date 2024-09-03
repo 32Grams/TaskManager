@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS persons (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    email VARCHAR(254) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    description TEXT,
+    person_id INTEGER REFERENCES persons(id)
+);
